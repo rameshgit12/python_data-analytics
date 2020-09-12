@@ -1,0 +1,267 @@
+Challenges program:
+
+program 1:
+#Input :ABAABBCA
+#Output: A4B3C1
+
+str1="ABAABBCA"
+str2=""
+d={}
+for x in str1:
+    d[x]=d.get(x,0)+1
+print(d)
+for k,v in d.items():
+    str2+=k+str(v)
+print(str2)
+
+Output:
+{'A': 4, 'B': 3, 'C': 1}
+A4B3C1
+
+program 2:
+#Input :a4b3c2
+#Output: aaaabbbcc
+str1="a4b3c2"
+str2=""
+for ch in str1:
+    if ch.isalpha():
+        x=ch
+    else:
+        d=int(ch)
+        str2=str2+x*d
+print(str2)
+
+output:
+aaaabbbcc
+
+
+program 3:
+#Reverse the middle words
+#Input :Hi how are you python
+#Output: Hi woh era uoy python
+
+str1="Hi how are you python"
+list1=[x for x in str1.split(" ")]
+print(list1[0],end=" ")
+for i in range(1,len(list1)-1):
+    print(list1[i][::-1],end=" ")
+print(list1[len(list1)-1])
+
+Output: Hi woh era uoy python
+
+program 4:
+#Input :B4A1D3
+#Output: ABD134
+str1="B4A1D3"
+alphabet=[]
+digit=[]
+for x in str1:
+    if x.isalpha():
+        alphabet.append(x)
+    else:
+        digit.append(x)
+result=(sorted(alphabet)+sorted(digit))
+print("".join(result))
+
+Output: ABD134
+
+program 5:
+#Input :aaaabbbccz
+#Output: 4a3b2c1z
+str1="aaaabbbccz"
+str2=""
+n=len(str1)
+previous=str1[0]
+count=1
+i=1
+while i<len(str1):
+    if str1[i]==previous:
+        count+=1
+    else:
+        str2=str2+str(count)+previous
+        previous=str1[i]
+        count=1
+        if i==n-1:
+            str2=str2+str(count)+previous
+    i+=1
+print(str2)
+
+Output: 4a3b2c1z
+
+
+program 6:
+#Input :a4k3b2
+#Output: aeknbd
+str1="a4k3b2"
+str2=""
+for ch in str1:
+    if ch.isalpha():
+        str2=str2+ch
+        x=ch
+    else:
+        d=int(ch)
+        new=chr(ord(x)+d)
+        str2=str2+new
+print(str2)
+
+Output: aeknbd
+
+
+program 7:
+#Input :restart
+#Output: resta$t
+str1="restart"
+char=str1[0]
+str1=str1.replace(char,'$')
+str1=char+str1[1:]
+print(str1)
+
+Output: resta$t
+
+
+program 8:
+#Input :AABBBDDDC
+#Output: ABDC
+str1="AABBBDDDC"
+str2=""
+for ch in str1:
+    if ch not in str2:
+        str2+=ch
+print(str2)
+
+#Output: ABDC
+
+
+program 9:
+
+#Input :ABBACBA
+#Output: A occurs 3 times 
+         B occurs 3 times
+         C occurs 1 times
+
+str1="ABBACBA"
+str2=[]
+for ch in str1:
+    if ch not in str2:
+        str2.append(ch)
+for ch in str2:
+    print("{} occurs {} times".format(ch,str1.count(ch)))
+
+Output: A occurs 3 times 
+         B occurs 3 times
+         C occurs 1 times
+
+program 10:
+
+#Input :s1='abcdefg'
+#       s2='xyz'
+#       s3=='12345'
+#Output: ax1,by2,cz3,d4,e5,f,g
+
+str1="abcdefg"
+str2="xyz"
+str3="12345"
+i=j=k=0
+while i<len(str1) or j<len(str2) or k<len(str3):
+    str4=""
+    if i<len(str1):
+        str4+=str4+str1[i]
+        i+=1
+    if j<len(str2):
+        str4+=str4+str2[j]
+        j+=1
+    if k<len(str3):
+        str4+=str4+str3[k]
+        k+=1
+    print(str4)
+
+
+program 11:
+#Input :"hello world!123"
+#Output: Digit=3  Letter=10
+
+str1="hello world!123"
+d={"LETTER":0,"DIGITS":0}
+for c in str1:
+    if c.isdigit():
+        d["DIGITS"]+=1
+    elif c.isalpha():
+        d["LETTER"]+=1
+    else:
+        pass
+print("Digits:",d["DIGITS"])
+print("Letters",d["LETTER"])
+
+Output: Digit=3  Letter=10
+
+program 12:
+#Input :[0,1,0,3,12]
+#Output:[1,3,12,0,0]
+def pushZeroToEnd(arr1,n):
+    count=0
+    for i in range(n):
+        if arr1[i]!=0:
+            arr1[count]=arr1[i]
+            count+=1
+    while count<n:
+        arr1[count]=0
+        count+=1
+arr1=[0,1,0,3,12]
+n=len(arr1)
+pushZeroToEnd(arr1,n)
+print("Array after pushing all zero to end of array")
+print(arr1)
+
+Array after pushing all zero to end of array
+[1, 3, 12, 0, 0]
+
+program 13:
+
+#Input :[2]
+#Output:[1:1,2:4]
+n=int(input("Enter the number"))
+d={}
+for i in range(1,n+1):
+    d[i]=i*i
+print(d)
+
+output:
+Enter the number  8
+8
+{1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64}
+
+program 14:
+#Input :[-4,-1,0,3,10]
+#Output:[0,1,9,16,100]
+arr1=[-4,-1,0,3,10]
+arr2=[]
+for i in arr1:
+    arr2.append(i**2)
+print(sorted(arr2))
+
+output:[0,1,9,16,100]
+
+program 15
+
+#Input :(1,2,3,4,5,6,7,8,9)
+#Output:
+#          Even number  :4
+#          Odd Number:5
+x=(1,2,3,4,5,6,7,8,9)
+even=odd=0
+for i in x:
+    if i%2==0:
+        even+=1
+    else:
+        odd+=1
+print("Even Number: ",even)
+print("Odd Number: ",odd)
+
+program 16
+
+
+
+
+
+
+
